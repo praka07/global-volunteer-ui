@@ -2,22 +2,43 @@
   <div class="fullheight valigncenter">
 
     <div class="login">
-        <div class="logo">
+      <div class="logo">
         <img src="../../../assets/images/global-volunteer-logo.png" width="300" />
+      </div>
+      <form #loginForm="ngForm" (ngSubmit)="signIn()" autocomplete="off">
+
+        <div class="form-group mb-3 text-left">
+
+          <input class="form-control" type="text" id="emailaddress" [(ngModel)]="user.emailId" name="emailId"
+            #emailId="ngModel" maxlength="40" placeholder="Enter your email" required>
+          <span class=" text-danger" *ngIf="emailId.errors?.required && emailId.touched">
+            Email Id is required
+          </span>
         </div>
-        <form>
-        <input type="text" class="input" placeholder="Username" />
-        <input type="text" class="input last-child" placeholder="Password" />
-        <button type="submit" class="ctabutton big mt-0">SUBMIT</button>
-        </form>
-        <!-- <div class="separator">
-            <div class="line"></div> <div class="text">OR</div> <div class="line"></div>
+
+        <div class="form-group mb-4 text-left">
+          <div class="input-group input-group-merge">
+            <input type="password" id="password" class="form-control" [(ngModel)]="user.password" name="password"
+              #password="ngModel" placeholder="Enter your password" required>
+            <div class="input-group-append" data-password="false">
+              <div class="input-group-text pwd">
+                <i class="fa fa-eye"></i>
+              </div>
+            </div>
+          </div>
+          <span class="help-block text-danger" *ngIf="password.errors?.required && password.touched">
+            Password is required
+          </span>
         </div>
-        <div class="mt-4 valigncenter">
-            <img src="facebook.png" alt="facebook" /> <div class="ml-3">Login with facebook</div>
+
+        <div class="form-group mb-0 text-center">
+          <button class="ctabutton big mt-0" [disabled]="!loginForm.valid" type="submit"> Sign In </button>
+          <!-- <input type="button" value="load end-user" (click)="loadEndUser()" /> -->
         </div>
-        <div class="mt-3 text-center"> <a href="" class="color-light">Forgot Password</a> </div> -->
+
+      </form>
+
 
     </div>
-</div>
+  </div>
 </div>

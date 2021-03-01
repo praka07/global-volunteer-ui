@@ -8,6 +8,8 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgwWowModule } from 'ngx-wow';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { NgwWowModule } from 'ngx-wow';
     BrowserModule,
     AppRoutingModule,
     NgwWowModule,
+    ReactiveFormsModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [],
