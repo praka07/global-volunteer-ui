@@ -1,0 +1,80 @@
+.loginpage {
+  background: #f1f5fe;
+  }
+  .fullheight {
+  width:100%;
+  height:100vh;
+  }
+  .valigncenter {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align: center;
+  }
+  .login {
+  width:340px;
+  background-color: #fff;
+  box-shadow:0 0 15px 15px rgba(0,0,0,0.02);
+  padding: 24px;
+  color:#25284b;
+  border-radius: 10px;
+  font-size: 13px;
+  }
+  .login .logo {
+  margin-bottom: 40px;
+  text-align: center;
+}
+.ctabutton {
+padding:9px 20px;
+background-color:#01B7BA;
+border:0;
+margin:0;
+color:#fff!important;
+  border-radius:40px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-top: 40px;
+}
+.ctabutton:hover {background-color:#00B7BA;}
+.ctabutton.big {padding:13px 40px; margin-top: 30px; display: inline-block;}
+.separator {
+  display: flex;
+  align-items: center;
+  margin: 16px 0;
+}
+.separator .text {
+  color: #88899d;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 0 18px;
+  .: ;
+}
+.separator .line {
+  background-color: #d7d8dd;
+  height: 1px;
+  width: 50%;
+}
+input {
+border:1px solid #e9f2ff;
+width:100%;
+min-height:44px;
+border-radius:4px;
+padding:0 16px;
+color:#25284b;
+margin-bottom:16px;
+box-sizing:border-box;
+display:block;
+font-family: 'Poppins', sans-serif;
+font-size:14px;
+font-weight:600;
+outline:0;
+transition: all .25s linear;
+}
+.input.last-child {
+margin-bottom:32px;
+}
+.input:hover, .input:focus, input:focus, input:active {
+border-color:#257dfb;
+outline:0;
+}
