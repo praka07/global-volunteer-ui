@@ -52,7 +52,7 @@ export class LoginPageComponent implements OnInit {
 
       } else if (this.userDetails.role == 2 ) {
         console.log("== load Activity Manager==");
-        this.router.navigate(['acivitymanager']);
+        this.router.navigate(['activitymanager']);
 
 
       }else{
