@@ -16,6 +16,7 @@ export class SystemAdministratorComponent implements OnInit {
 
   ngOnInit(): void {
     this.userDetail = this.service.getLoggedInuser();
+    console.log(' --- logged in user details ---',this.userDetail);
     $(document).ready(function () {
       $(".sidebar-toggler, .sidebar a:not('.drop')").click(function () {
         $(".main-wrapper").toggleClass("sidebaropen");

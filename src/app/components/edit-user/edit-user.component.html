@@ -1,1 +1,64 @@
-<p>edit-user works!</p>
+<div class="">
+  <div class="container-fluid">
+      <form #updateuserdetail="ngForm" (ngSubmit)="updateUserdetail();" autocomplete="off">
+          <div class="form-group">
+              <label for="todate">First Name</label>
+              <input type="text" placeholder="Edit First Name" [(ngModel)]="userDetailsToUpdate.firstName" class="form-control" name="firstname" #firstname="ngModel" required>
+              <span class="help-block text-danger" *ngIf="firstname.errors?.required && firstname.touched">
+              First Name is required
+          </span>
+          </div>
+          <div class="form-group">
+              <label for="todate">Last Name</label>
+              <input type="text" placeholder="Edit Last Name" [(ngModel)]="userDetailsToUpdate.lastName" class="form-control" name="lastname" #lastname="ngModel" required>
+              <span class="help-block text-danger" *ngIf="lastname.errors?.required && lastname.touched">
+              Last Name is required
+          </span>
+          </div>
+          <div class="form-group">
+              <label for="todate">Email</label>
+              <input type="text" placeholder="Edit Email" [(ngModel)]="userDetailsToUpdate.emailId" class="form-control" name="email" #email="ngModel" required>
+              <div *ngIf="email.touched">
+                  <p class="help-block text-danger" *ngIf="email.errors?.required">Email is a required</p>
+                  <p class="help-block text-danger" *ngIf="email.errors?.pattern">This is not a valid Email</p>
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="todate">Contact Number</label>
+              <input type="text" placeholder="Edit Contact Number" [(ngModel)]="userDetailsToUpdate.phoneNumber" class="form-control" name="mobile" #mobile="ngModel" required>
+              <span class="help-block text-danger" *ngIf="mobile.errors?.required && mobile.touched">
+              Contact Numer is required
+          </span>
+          </div>
+          <div class="form-group" >
+              <label for="todate">Select User Role</label>
+              <select class="form-control" [(ngModel)]="userDetailsToUpdate.role" name="userRole" #userRole="ngModel">
+                  <option *ngFor="let ur of userRoles" [value]="ur.id">
+                     {{ur.roleName}}
+                   </option>
+                </select>
+
+          </div>
+
+          <div class="col-lg-12">
+              <div class="d-flex">
+                  <label class="mr-3">Active</label>
+                  <div class="radio mr-3">
+                      <label>
+                      <input type="radio" name="active" [value]="true" [(ngModel)]="userDetailsToUpdate.active">&nbsp;Yes
+                  </label>
+                  </div>
+
+                  <div class="radio">
+                      <label>
+                      <input type="radio" name="active" [value]="false" [(ngModel)]="userDetailsToUpdate.active">&nbsp;No
+                  </label>
+                  </div>
+              </div>
+          </div>
+          <div class="">
+              <button type="submit" [disabled]="updateuserdetail.invalid" class="btn btn-success float-right">Update</button>
+          </div>
+      </form>
+  </div>
+</div>

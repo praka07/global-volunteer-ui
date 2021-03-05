@@ -1,0 +1,67 @@
+<div class="shadow-sm p-3 mb-5 bg-white rounded">
+  <h3 class="mb-4">View Users</h3>
+
+  <div class="row justify-content-end m-0">
+      <div class="col-md-12 mt-3 p-0 mscroll">
+          <table class="table table-hover ">
+              <thead class="thead-dark">
+                  <tr>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Email</th>
+                      <th>Contact Number</th>
+                      <th>Role</th>
+                      <th>Created Date</th>
+                      <th>Active</th>
+                      <th>Action</th>
+
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let userObj of userList">
+                      <td>{{userObj.firstName}}</td>
+                      <td>{{userObj.lastName}}</td>
+                      <td>{{userObj.emailId}}</td>
+                      <td>{{userObj.phoneNumber}}</td>
+                      <td>{{(userObj.role == 2)?"Activity Manager":"Volunteers"}}</td>
+                      <td>{{formateDate(userObj.createdDate)}}</td>
+                      <td>{{userObj.active?'Yes':'No'}}</td>
+                      <td (click)="openEditModal(userObj)">
+                          <i class="fa fa-pencil"></i>
+                      </td>
+
+                  </tr>
+              </tbody>
+          </table>
+
+      </div>
+
+  </div>
+</div>
+
+<!-- Modal for edit customer open-->
+
+<div class="modal" id="editUserDetailModal" [style.display]="editUserDetailModal ? 'block' : 'none'">
+  <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+              <h4 class="modal-title text-center text-dark">Edit Admin Detail</h4>
+              <button type="button" class="close" data-dismiss="modal" (click)="hideConfirmationEditModal()">&times;</button>
+          </div>
+          <!-- Modal body -->
+
+          <div class="modal-body">
+              <div *ngIf='editUserObject'>
+                  <app-edit-user [updateUserDetail]="editUserObject" (closePopup)="closeModal($event)"></app-edit-user>
+              </div>
+
+
+          </div>
+
+      </div>
+
+  </div>
+
+  <!-- Modal for edit customer close-->

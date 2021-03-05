@@ -1,1 +1,70 @@
-<p>create-user works!</p>
+<div class="shadow-sm p-3 mb-5 bg-white rounded">
+  <h3 class="mb-4">Create User</h3>
+  <div class="row">
+      <div class="col-lg-7">
+
+          <form #addUser="ngForm" autocomplete="off" (ngSubmit)="createNewUser()">
+              <div class="row">
+                  <div class="col-lg-6">
+                      <div class="form-group">
+                          <label for="firstname">FirstName</label>
+                          <input type="text" [(ngModel)]="createUser.firstName" class="form-control" placeholder="Enter FirstName" name="firstName" #firstName="ngModel" maxlength="30" required>
+                          <span class="help-block text-danger" *ngIf="firstName.errors?.required && firstName.touched">
+                          First Name is required
+                          </span>
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="form-group">
+                          <label for="lastname">Last Name</label>
+                          <input type="text" class="form-control" [(ngModel)]="createUser.lastName" placeholder="Enter LastName" name="lastName" #lastName="ngModel" maxlength="30" required>
+                          <span class="help-block text-danger" *ngIf="lastName.errors?.required && lastName.touched">
+                          Last Name is required
+                          </span>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-lg-6">
+                      <div class="form-group">
+                          <label for="emailId">Email Id</label>
+                          <input type="text" class="form-control" [(ngModel)]="createUser.emailId" placeholder="Enter Email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="emailId" #emailId="ngModel" required>
+                          <div *ngIf="emailId.touched">
+                              <p class="help-block text-danger" *ngIf="emailId.errors?.required">Email is a required</p>
+                              <p class="help-block text-danger" *ngIf="emailId.errors?.pattern">This is not a valid Email</p>
+                          </div>
+
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="form-group">
+                          <label for="phone">Phone Number</label>
+                          <input type="tel" class="form-control" [(ngModel)]="createUser.phoneNumber" placeholder="Enter Phone Number" pattern="^\d{10}$" name="phoneNumber" #phoneNumber="ngModel" required>
+                          <span class="text-danger" *ngIf="phoneNumber.errors?.required && phoneNumber.touched">
+                          Phone Number is required
+                          </span>
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="form-group">
+                          <select class="form-control" [(ngModel)]="createUser.roleName" name="userRole" #userRole="ngModel" required>
+                              <option value=''>Select User Role</option>
+                              <option *ngFor="let ur of userRoles" [value]="ur.id">
+                                {{ur.roleName}}
+                              </option>
+                            </select>
+                          <span class="text-danger" *ngIf="userRole.errors?.required && userRole.touched">
+                          User Role is required
+                          </span>
+                      </div>
+                  </div>
+              </div>
+              <div class="mt-4">
+                  <button type="submit" [disabled]="addUser.invalid" class="btn btn-success float-right">Create</button>
+              </div>
+          </form>
+      </div>
+
+  </div>
+</div>

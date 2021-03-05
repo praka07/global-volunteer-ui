@@ -21,6 +21,7 @@ import { AvatarModule } from 'ngx-avatar';
     HomePageComponent,
     LoginPageComponent,
     PageNotFoundComponent
+
   ],
   imports: [
     BrowserModule,

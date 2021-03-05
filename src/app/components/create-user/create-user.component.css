@@ -1,0 +1,9 @@
+label, h3 {font-weight: normal;}
+@media all and (max-width:640px) {
+    h3 {font-size: 22px;}
+    .table .thead-dark th {
+        font-size: 11px;
+    }
+    .table {table-layout: fixed; overflow-x: scroll;}
+
+}

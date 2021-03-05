@@ -4,7 +4,6 @@ export class User {
   lastName: string;
   emailId: string;
   password: string;
-  orgId: number;
   firstLogin: boolean;
   createdDate: Date;
   createdBy: number;
