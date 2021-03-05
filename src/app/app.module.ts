@@ -11,6 +11,9 @@ import { NgwWowModule } from 'ngx-wow';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
+import { AvatarModule } from 'ngx-avatar';
+
+
 
 @NgModule({
   declarations: [
@@ -21,6 +24,7 @@ import { ToastrModule } from 'ngx-toastr';
   ],
   imports: [
     BrowserModule,
+    AvatarModule,
     AppRoutingModule,
     NgwWowModule,
     ReactiveFormsModule,

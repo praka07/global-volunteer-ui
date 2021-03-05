@@ -10,13 +10,9 @@ const routes: Routes = [{
 }, {
   path: 'login', component: LoginPageComponent
 },
-{
-  path: 'systemadmindashboard', loadChildren: () => import('./components/system-administrator-dashboard/system-administrator-dashboard.module').then(mod => mod.SystemAdministratorDashboardModule),
 
-
-
-},
 { path: '', redirectTo: '/home', pathMatch: 'full' },
+{ path: 'systemadministrator', loadChildren: () => import('./components/system-administrator/system-administrator.module').then(m => m.SystemAdministratorModule) },
 { path: '**', component: PageNotFoundComponent }
 ];
 
