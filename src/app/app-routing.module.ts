@@ -14,6 +14,7 @@ const routes: Routes = [{
 { path: '', redirectTo: '/home', pathMatch: 'full' },
 { path: 'systemadministrator', loadChildren: () => import('./components/system-administrator/system-administrator.module').then(m => m.SystemAdministratorModule) },
 { path: 'activitymanager', loadChildren: () => import('./components/activity-manager/activity-manager.module').then(m => m.ActivityManagerModule) },
+  { path: 'volunteer', loadChildren: () => import('./components/volunteer/volunteer.module').then(m => m.VolunteerModule) },
 { path: '**', component: PageNotFoundComponent }
 ];
 

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models/user';
+import { GlobalVolunteerService } from 'src/app/services/global-volunteer.service';
+declare var $:any;
 
 @Component({
   selector: 'app-activity-manager',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActivityManagerComponent implements OnInit {
 
-  constructor() { }
+  userDetail = new User();
+  constructor(private service:GlobalVolunteerService) { }
 
   ngOnInit(): void {
+    this.userDetail = this.service.getLoggedInuser();
+    console.log(' --- logged in user details ---',this.userDetail);
+    $(document).ready(function () {
+      $(".sidebar-toggler, .sidebar a:not('.drop')").click(function () {
+        $(".main-wrapper").toggleClass("sidebaropen");
+      })
+    });
   }
 
+  logOut() {
+    this.service.logOut();
+  }
 }

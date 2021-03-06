@@ -57,7 +57,7 @@ export class LoginPageComponent implements OnInit {
 
       }else{
         console.log("== load Volunteers==");
-        this.router.navigate(['volunteers']);
+        this.router.navigate(['volunteer']);
 
       }
 

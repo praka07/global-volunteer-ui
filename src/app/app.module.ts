@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { AvatarModule } from 'ngx-avatar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -25,6 +26,7 @@ import { AvatarModule } from 'ngx-avatar';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AvatarModule,
     AppRoutingModule,
     NgwWowModule,
