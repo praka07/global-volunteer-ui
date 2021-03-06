@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../models/user';
 import { Router } from '@angular/router';
+import { ActivityDetails } from '../models/activityDetails';
 
 @Injectable({
   providedIn: 'root'
@@ -51,4 +52,12 @@ export class GlobalVolunteerService {
     return this.http.post(`${this.backendUrl}updatepassword`, userDetail);
   }
   // User related opearions end
+
+
+
+  createActivity(activityDetails: ActivityDetails) {
+    console.log(`--create activity Request ---`, activityDetails);
+    return this.http.post(`${this.backendUrl}createactivity`, activityDetails);
+
+  }
 }

@@ -3,6 +3,8 @@ import { User } from 'src/app/models/user';
 import { GlobalVolunteerService } from 'src/app/services/global-volunteer.service';
 declare var $:any;
 
+
+
 @Component({
   selector: 'app-activity-manager',
   templateUrl: './activity-manager.component.html',
@@ -21,9 +23,21 @@ export class ActivityManagerComponent implements OnInit {
         $(".main-wrapper").toggleClass("sidebaropen");
       })
     });
+
+    $(window).scroll(function () {
+      if ($(window).scrollTop() > 30) {
+        $(".sidebar").addClass('postop');
+      } else {
+        $(".sidebar").removeClass('postop');
+      }
+    });
+
   }
+
+
 
   logOut() {
     this.service.logOut();
   }
+
 }
