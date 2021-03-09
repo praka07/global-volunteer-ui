@@ -38,8 +38,8 @@ export class CreateUserComponent implements OnInit {
         this.toastr.warning('user already present !!');
 
       } else {
-        this.toastr.success("Record added successfully !!");
-        this.navigate.navigate(['systemadministrator/edituser']);
+        this.toastr.success("user created successfully !!");
+        this.navigate.navigate(['systemadministrator/listuser']);
 
       }
 

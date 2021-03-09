@@ -1,1 +1,39 @@
-<p>list-activity works!</p>
+<div class="shadow-sm p-3 mb-5 bg-white rounded">
+  <h3 class="mb-4">Activity Details</h3>
+
+  <div class="row justify-content-end m-0">
+    <div class="col-md-12 mt-3 p-0 mscroll">
+
+      <table class="table table-hover ">
+        <thead class="thead-dark">
+          <tr>
+            <th>Name</th>
+            <th>Place</th>
+            <th>TotalNumberOfPeople</th>
+            <th>Date</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>{{showOnlySystemAdministartor?'Action':'Status'}}</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let al of activityList">
+            <td>{{al.activityName}}</td>
+            <td>{{al.place}}</td>
+            <td>{{al.totalNumberOfPeople}}</td>
+            <td>{{al.activityDate}}</td>
+            <td>{{al.startTime}}</td>
+            <td>{{al.endTime}}</td>
+            <td *ngIf="showOnlySystemAdministartor; else showElseBlock"> <button [ngClass]="al.status? 'btn btn-danger btn-sm':'btn btn-success btn-sm'" (click)="updateActivityStatus(al)">{{al.status?'Reject':'Approve'}}</button></td>
+            <ng-template #showElseBlock><td [ngClass]="al.status? 'text-success font-weight-bold':'text-warning font-weight-bold'">{{al.status?'Approved':'Pending'}}</td></ng-template>
+          </tr>
+        </tbody>
+      </table>
+
+
+
+    </div>
+
+  </div>
+</div>

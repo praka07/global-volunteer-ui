@@ -9,14 +9,15 @@ import { ActivityDetails } from '../models/activityDetails';
   providedIn: 'root'
 })
 export class GlobalVolunteerService {
+
   loggedInUserDetail = new User();
 
 
 
-  backendUrl: string= 'http://localhost:6060/';
+  backendUrl: string = 'http://localhost:6060/';
 
-  constructor(private http: HttpClient,private router: Router) { }
-  validUserLogin(requestPayLoad: any) : Observable<User> {
+  constructor(private http: HttpClient, private router: Router) { }
+  validUserLogin(requestPayLoad: any): Observable<User> {
     return this.http.post<User>(`${this.backendUrl}validateuserlogin`, requestPayLoad);
 
   }
@@ -34,7 +35,7 @@ export class GlobalVolunteerService {
     this.router.navigate(['']);
 
   }
-// User related opearions start
+  // User related opearions start
   registerUser(createUser: User) {
     return this.http.post(`${this.backendUrl}registeruser`, createUser);
 
@@ -59,5 +60,13 @@ export class GlobalVolunteerService {
     console.log(`--create activity Request ---`, activityDetails);
     return this.http.post(`${this.backendUrl}createactivity`, activityDetails);
 
+  }
+
+  getAllActivities(): Observable<ActivityDetails[]> {
+    return this.http.get<ActivityDetails[]>(`${this.backendUrl}listactivities`);
+  }
+
+  updateActivityStatus(al) {
+    return this.http.put(`${this.backendUrl}updateactivitystatus`, al);
   }
 }
