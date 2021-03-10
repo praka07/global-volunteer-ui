@@ -1,1 +1,74 @@
-<p>volunteer works!</p>
+<div class="main-wrapper">
+  <!--Header-->
+  <div class="navbar-custom">
+    <div class="container-fluid">
+
+      <!-- LOGO -->
+      <div class="logo-box">
+        <a routerLink="/systemadministrator/dashboardhome" class="logo text-center order2">
+          <span class="logo-lg">
+            <img src="../../../assets/images/dashboard-logo.jpg" class="img-fluid" alt="" />
+            <!-- <span class="logo-lg-text-light">U</span> -->
+          </span>
+        </a>
+        <button class="menu sidebar-toggler  order1">
+          <div class="lines">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </button>
+      </div>
+
+
+      <ul class="list-unstyled topnav-menu topmenu mb-0">
+        <li class="nav-item drop-down">
+          <a class="nav-link alignend" href="javascript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <ngx-avatar name="{{userDetail.firstName}} {{userDetail.lastName}}" class="my-avatar" bgColor="#01B7BA"
+              [round]="true" size="40"></ngx-avatar>
+          </a>
+          <ul>
+
+            <li><a routerLink="/volunteer/changepassword"><i class="fa fa-lock fa-1x"></i> &nbsp;Change Password</a>
+            </li>
+            <li><a style="cursor: pointer;" (click)="logOut()"><i class="fa fa-sign-out fa-1x"></i>&nbsp;Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+
+
+
+    </div>
+  </div>
+  <div class="collapse sidebar" id="sidebar">
+    <ul class="nav">
+      <li class="nav-item">
+        <a routerLink="/systemadministrator/home" class="nav-link">
+          <img src="../../../assets/images/dashboard.png" alt="dashboard" class="link-icon" />
+          <span class="menu-title">Dashboard</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a data-toggle="collapse" href="#Activity" role="button" aria-expanded="false" aria-controls="group"
+          class="nav-link drop">
+          <img src="../../../assets/images/speech-bubble.png" alt="announcement" class="link-icon" />
+          <span class="menu-title">Activity</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="feather feather-chevron-down link-arrow">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </a>
+        <ul class="collapse" id="Activity">
+         <li class="nav-item"><a routerLink="/volunteer/listactivity" class="nav-link">List Activities</a></li>
+
+        </ul>
+      </li>
+
+    </ul>
+  </div>
+  <div class="page-wrapper">
+    <router-outlet></router-outlet>
+  </div>

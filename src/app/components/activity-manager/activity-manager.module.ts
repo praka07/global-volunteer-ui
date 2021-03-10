@@ -8,12 +8,14 @@ import { CreateActivityComponent } from '../create-activity/create-activity.comp
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
   declarations: [ActivityManagerComponent, CreateActivityComponent],
   imports: [
     CommonModule,
+    SharedModule,
     BsDatepickerModule.forRoot(),
     TimepickerModule.forRoot(),
     AvatarModule,
