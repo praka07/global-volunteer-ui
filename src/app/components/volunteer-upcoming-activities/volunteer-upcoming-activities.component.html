@@ -1,5 +1,5 @@
 <div class="shadow-sm p-3 mb-5 bg-white rounded">
-  <h3 class="mb-4">Activity Details</h3>
+  <h3 class="mb-4">Upcoming Activities</h3>
 
   <div class="row justify-content-end m-0">
     <div class="col-md-12 mt-3 p-0 mscroll">
@@ -13,7 +13,8 @@
             <th>Date</th>
             <th>Start Time</th>
             <th>End Time</th>
-            <th>Status</th>
+            <th>Action</th>
+
 
           </tr>
         </thead>
@@ -25,7 +26,8 @@
             <td>{{al.activityDate}}</td>
             <td>{{al.startTime}}</td>
             <td>{{al.endTime}}</td>
-           <td [ngClass]="al.status? 'text-success font-weight-bold':'text-warning font-weight-bold'">{{al.status?'Approved':'Pending'}}</td>
+            <td><button [ngClass]="al.appliedVolunteerCount<al.totalNumberOfPeople? 'btn btn-success btn-sm':'btn btn-danger btn-sm'"  (click)="registerActivity(al)">{{al.appliedVolunteerCount < al.totalNumberOfPeople ?'Register':'Full'}}</button></td>
+          </tr>
         </tbody>
       </table>
 
@@ -35,3 +37,4 @@
 
   </div>
 </div>
+

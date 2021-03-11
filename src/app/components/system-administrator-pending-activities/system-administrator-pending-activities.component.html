@@ -13,7 +13,7 @@
             <th>Date</th>
             <th>Start Time</th>
             <th>End Time</th>
-            <th>Status</th>
+            <th>Action</th>
 
           </tr>
         </thead>
@@ -25,7 +25,9 @@
             <td>{{al.activityDate}}</td>
             <td>{{al.startTime}}</td>
             <td>{{al.endTime}}</td>
-           <td [ngClass]="al.status? 'text-success font-weight-bold':'text-warning font-weight-bold'">{{al.status?'Approved':'Pending'}}</td>
+            <td > <button class="btn btn-success btn-sm" (click)="updateActivityStatus(al)">Approve</button></td>
+
+          </tr>
         </tbody>
       </table>
 

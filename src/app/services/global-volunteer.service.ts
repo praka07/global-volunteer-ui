@@ -65,8 +65,15 @@ export class GlobalVolunteerService {
   getAllActivities(): Observable<ActivityDetails[]> {
     return this.http.get<ActivityDetails[]>(`${this.backendUrl}listactivities`);
   }
+  getAllActivitiesForVolunteer(volunteerId:number): Observable<ActivityDetails[]> {
+    return this.http.get<ActivityDetails[]>(`${this.backendUrl}volunteeractivities/${volunteerId}`);
+  }
 
   updateActivityStatus(al) {
     return this.http.put(`${this.backendUrl}updateactivitystatus`, al);
+  }
+
+  registerActivityByVolunteer(payload: any) {
+    return this.http.post(`${this.backendUrl}registeractivity`, payload);
   }
 }

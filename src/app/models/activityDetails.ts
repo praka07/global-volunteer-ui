@@ -11,8 +11,9 @@ export class ActivityDetails {
   createdDate: string;
   place: string;
   approvedDate:string;
+  approvedBy:number;
   createdBy:number;
   status:boolean;
-
+  appliedVolunteerCount:number;
 
 }

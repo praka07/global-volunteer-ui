@@ -71,7 +71,7 @@ export class CreateActivityComponent implements OnInit {
     console.log('---startTimeMInutes---',new Date(this.createActivityForm.get('startTime').value).getMinutes());
 
 
-    let convertedStartDate = this.datepipe.transform(this.createActivityForm.get('activityDate').value, 'dd/MM/yyyy');
+    let convertedStartDate = this.datepipe.transform(this.createActivityForm.get('activityDate').value, 'dd/MMM/yyyy');
     console.log('---convertedStartDate--',convertedStartDate)
     let convertedStartTime = this.datepipe.transform(this.createActivityForm.get('startTime').value, 'dd/MM/yyyy HH:mm:ss');
     let convertedEndTime = this.datepipe.transform(this.createActivityForm.get('endTime').value, 'dd/MM/yyyy HH:mm:ss');

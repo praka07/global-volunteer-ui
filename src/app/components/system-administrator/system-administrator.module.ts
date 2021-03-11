@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 import { SystemAdministratorRoutingModule } from './system-administrator-routing.module';
 import { SystemAdministratorComponent } from './system-administrator.component';
@@ -8,13 +8,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateUserComponent } from '../create-user/create-user.component';
 import { EditUserComponent } from '../edit-user/edit-user.component';
 import { ListUserComponent } from '../list-user/list-user.component';
-import { ListActivityComponent } from '../list-activity/list-activity.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { SystemAdministratorPendingActivitiesComponent } from '../system-administrator-pending-activities/system-administrator-pending-activities.component';
 
 
 
 @NgModule({
-  declarations: [SystemAdministratorComponent, CreateUserComponent, EditUserComponent, ListUserComponent, ListActivityComponent],
+  declarations: [SystemAdministratorComponent,SystemAdministratorPendingActivitiesComponent, CreateUserComponent, EditUserComponent, ListUserComponent],
   imports: [
     CommonModule,
     AvatarModule,
@@ -22,10 +22,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     FormsModule,
     SharedModule,
     SystemAdministratorRoutingModule
-  ],
-  exports: [
-    ListActivityComponent
+  ],providers:[
+    DatePipe
   ]
 })
 export class SystemAdministratorModule { }
-export { ListActivityComponent } from '../list-activity/list-activity.component';

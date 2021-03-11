@@ -1,0 +1,31 @@
+.table .thead-dark th {
+  background-color: #01B7BA;
+  padding: 6px 10px;
+  border-color: #01B7BA;
+}
+
+h3 {
+  font-weight: normal;
+}
+
+.fa {
+  font-size: 20px;
+}
+
+@media all and (max-width:640px) {
+  h3 {
+      font-size: 22px;
+  }
+  .table {
+      table-layout: fixed;
+      overflow-x: scroll;
+      width: auto;
+  }
+  .table td,
+  .table th {
+      font-size: 13px;
+  }
+  .mscroll {
+      overflow-x: auto;
+  }
+}
