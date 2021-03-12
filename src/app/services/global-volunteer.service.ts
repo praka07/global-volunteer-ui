@@ -10,6 +10,7 @@ import { ActivityDetails } from '../models/activityDetails';
 })
 export class GlobalVolunteerService {
 
+
   loggedInUserDetail = new User();
 
 
@@ -65,7 +66,7 @@ export class GlobalVolunteerService {
   getAllActivities(): Observable<ActivityDetails[]> {
     return this.http.get<ActivityDetails[]>(`${this.backendUrl}listactivities`);
   }
-  getAllActivitiesForVolunteer(volunteerId:number): Observable<ActivityDetails[]> {
+  getAllActivitiesForVolunteer(volunteerId: number): Observable<ActivityDetails[]> {
     return this.http.get<ActivityDetails[]>(`${this.backendUrl}volunteeractivities/${volunteerId}`);
   }
 
@@ -75,5 +76,23 @@ export class GlobalVolunteerService {
 
   registerActivityByVolunteer(payload: any) {
     return this.http.post(`${this.backendUrl}registeractivity`, payload);
+  }
+  volunteerRegisteredActivities(volunteerId: number): Observable<ActivityDetails[]> {
+    return this.http.get<ActivityDetails[]>(`${this.backendUrl}volunteerregisteractivities/${volunteerId}`);
+  }
+  volunteerCancelActivity(payload: any) {
+
+    return this.http.post(`${this.backendUrl}cancelactivity`, payload);
+  }
+  activityCheckOut(checkOutPayload: any) {
+    return this.http.post(`${this.backendUrl}activitycheckout`, checkOutPayload);
+  }
+  activityCheckIn(checkInPayload: any) {
+    return this.http.post(`${this.backendUrl}activitycheckin`, checkInPayload);
+  }
+
+  getReport() {
+    return this.http.get(`${this.backendUrl}report`);
+
   }
 }

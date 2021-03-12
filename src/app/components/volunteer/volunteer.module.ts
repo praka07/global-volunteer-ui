@@ -7,10 +7,11 @@ import { AvatarModule } from 'ngx-avatar';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { VolunteerListActivityComponent } from '../volunteer-list-activity/volunteer-list-activity.component';
 import { VolunteerUpcomingActivitiesComponent } from '../volunteer-upcoming-activities/volunteer-upcoming-activities.component';
+import { VolunteerDashboardActivitesComponent } from '../volunteer-dashboard-activites/volunteer-dashboard-activites.component';
 
 
 @NgModule({
-  declarations: [VolunteerComponent,VolunteerListActivityComponent,VolunteerUpcomingActivitiesComponent],
+  declarations: [VolunteerComponent,VolunteerListActivityComponent,VolunteerDashboardActivitesComponent,VolunteerUpcomingActivitiesComponent],
   imports: [
     CommonModule,
     SharedModule,

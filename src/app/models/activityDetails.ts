@@ -15,5 +15,9 @@ export class ActivityDetails {
   createdBy:number;
   status:boolean;
   appliedVolunteerCount:number;
+  enableCancelButton:boolean;
+  enableCheckInButton:boolean;
+  enableCheckOutButton:boolean;
+
 
 }

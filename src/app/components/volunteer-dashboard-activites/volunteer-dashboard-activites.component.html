@@ -1,0 +1,40 @@
+<div class="shadow-sm p-3 mb-5 bg-white rounded">
+  <h3 class="mb-4">Registered Activities</h3>
+
+  <div class="row justify-content-end m-0">
+    <div class="col-md-12 mt-3 p-0 mscroll">
+
+      <table class="table table-hover ">
+        <thead class="thead-dark">
+          <tr>
+            <th>Name</th>
+            <th>Place</th>
+            <th>Date</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Action</th>
+            <th>Action</th>
+            <th>Action</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let al of activityList">
+            <td>{{al.activityName}}</td>
+            <td>{{al.place}}</td>
+            <td>{{al.activityDate}}</td>
+            <td>{{getFormatedStartTime(al.startTime)}}</td>
+            <td>{{getFormatedEndTime(al.endTime)}}</td>
+            <td> <button class="btn btn-success btn-sm" [disabled]="al.enableCancelButton"
+                (click)="cancelActivity(al)">Cancel</button></td>
+            <td><button class="btn btn-success btn-sm" [disabled]="al.enableCheckInButton"(click)="checkIn(al)">Check In</button></td>
+            <td><button class="btn btn-success btn-sm" [disabled]="al.enableCheckOutButton" (click)="checkOut(al)">Check Out</button></td>
+        </tbody>
+      </table>
+
+
+
+    </div>
+
+  </div>
+</div>

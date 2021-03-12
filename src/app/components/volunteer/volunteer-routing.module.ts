@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UserChangePasswordComponent } from '../user-change-password/user-change-password.component';
+import { VolunteerDashboardActivitesComponent } from '../volunteer-dashboard-activites/volunteer-dashboard-activites.component';
 import { VolunteerListActivityComponent } from '../volunteer-list-activity/volunteer-list-activity.component';
 import { VolunteerUpcomingActivitiesComponent } from '../volunteer-upcoming-activities/volunteer-upcoming-activities.component';
 
@@ -19,8 +20,9 @@ const routes: Routes = [
         path: 'registeractivity', component: VolunteerUpcomingActivitiesComponent
       },
       {
-        path:'home',component:VolunteerUpcomingActivitiesComponent
+        path:'home',component:VolunteerDashboardActivitesComponent
       },
+
       {
         path: '', redirectTo: '/volunteer/home', pathMatch: 'full'
       }
