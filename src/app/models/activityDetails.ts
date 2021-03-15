@@ -11,6 +11,7 @@ export class ActivityDetails {
   createdDate: string;
   place: string;
   approvedDate:string;
+  conductedBy:string;
   approvedBy:number;
   createdBy:number;
   status:boolean;

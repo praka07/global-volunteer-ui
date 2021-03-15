@@ -24,8 +24,8 @@
             <td>{{al.place}}</td>
             <td>{{al.totalNumberOfPeople}}</td>
             <td>{{al.activityDate}}</td>
-            <td>{{al.startTime}}</td>
-            <td>{{al.endTime}}</td>
+            <td>{{getFormatedStartTime(al.startTime)}}</td>
+            <td>{{getFormatedEndTime(al.endTime)}}</td>
             <td><button [ngClass]="al.appliedVolunteerCount<al.totalNumberOfPeople? 'btn btn-success btn-sm':'btn btn-danger btn-sm'"  (click)="registerActivity(al)">{{al.appliedVolunteerCount < al.totalNumberOfPeople ?'Register':'Full'}}</button></td>
           </tr>
         </tbody>

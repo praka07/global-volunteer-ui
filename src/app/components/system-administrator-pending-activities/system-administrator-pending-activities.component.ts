@@ -47,4 +47,28 @@ export class SystemAdministratorPendingActivitiesComponent implements OnInit {
 
 
   }
+  getFormatedStartTime(element) {
+
+    console.log('-- element---', element);
+
+    var subString = element.split(':')[0];
+
+    const startTimeHours = subString.split(' ')[1];
+    const startTimeMinutes = element.split(':')[1];
+    return startTimeHours + ":" + startTimeMinutes;
+
+  }
+  getFormatedEndTime(element) {
+
+
+
+    console.log('-- element---', element);
+
+    var subString = element.split(':')[0];
+
+    const endTimeHours = subString.split(' ')[1];
+    const endTimeMinutes = element.split(':')[1];
+    return endTimeHours + ":" + endTimeMinutes;
+
+  }
 }

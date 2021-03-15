@@ -23,8 +23,8 @@
             <td>{{al.place}}</td>
             <td>{{al.totalNumberOfPeople}}</td>
             <td>{{al.activityDate}}</td>
-            <td>{{al.startTime}}</td>
-            <td>{{al.endTime}}</td>
+            <td>{{getFormatedStartTime(al.startTime)}}</td>
+            <td>{{getFormatedEndTime(al.endTime)}}</td>
             <td > <button class="btn btn-success btn-sm" (click)="updateActivityStatus(al)">Approve</button></td>
 
           </tr>

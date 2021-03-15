@@ -91,6 +91,10 @@ export class GlobalVolunteerService {
     return this.http.post(`${this.backendUrl}activitycheckin`, checkInPayload);
   }
 
+  getHomePageActivityList(): Observable<ActivityDetails[]> {
+    return this.http.get<ActivityDetails[]>(`${this.backendUrl}homepageactivitylist`);
+  }
+
   getReport() {
     return this.http.get(`${this.backendUrl}report`);
 

@@ -23,9 +23,9 @@
   <div class="banner">
     <div class="container">
       <div class="bantxt text-center animate__animated animate__fadeInDown">
-        <h3>10<sup>th</sup> FEB</h3>
-        <h1>World Largest Digital<br />Conference 2021</h1>
-        <small>Conducted by Mr. Biruk</small>
+        <h3>{{zeroThDate}}<sup>th</sup> {{zeroThMonth.toUpperCase()}}</h3>
+        <h1>{{zeroThActivityName}}<br />{{zeroThContent}} {{zeroThYear}}</h1>
+        <small>Conducted by {{zeroThConductedBy}}</small>
       </div>
     </div>
   </div>
@@ -46,23 +46,23 @@
       <h1 class="bigtitle">UPCOMING EVENTS</h1>
 
       <ul class="event">
-        <li class="shadow-lg wow fadeInDown" data-wow-delay="0.3s">
+        <li *ngFor="let activity of activityList" class="shadow-lg wow fadeInDown" data-wow-delay="0.3s">
           <div class="row m-0">
             <div>
               <div class="date">
-                <h4>FEB</h4>
-                <h2>10</h2>
-                <h4>2021</h4>
+                <h4>{{activity.activityDate.split('/')[1]}}</h4>
+                <h2>{{activity.activityDate.split('/')[0]}}</h2>
+                <h4>{{activity.activityDate.split('/')[2]}}</h4>
               </div>
             </div>
             <div>
-              <h4>3.30 PM</h4>
-              <h3>Artificial Intelligence Event</h3>
-              <p>Conducted By Biruk</p>
+              <h4>{{getFormatedStartTime(activity.startTime)}}</h4>
+              <h3>{{activity.activityName}}</h3>
+              <p>Conducted By {{activity.conductedBy}}</p>
             </div>
           </div>
         </li>
-        <li class="shadow-lg wow fadeInDown" data-wow-delay="0.5s">
+        <!-- <li class="shadow-lg wow fadeInDown" data-wow-delay="0.5s">
           <div class="row m-0">
             <div>
               <div class="date">
@@ -93,7 +93,7 @@
               <p>Conducted By Biruk</p>
             </div>
           </div>
-        </li>
+        </li> -->
       </ul>
       <div class="mt-5 pt-5 text-center">
         <a  routerLink="/login" class="ctabutton big">MORE EVENTS</a>

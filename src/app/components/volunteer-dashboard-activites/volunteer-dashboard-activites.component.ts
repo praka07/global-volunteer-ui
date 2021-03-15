@@ -64,15 +64,25 @@ export class VolunteerDashboardActivitesComponent implements OnInit {
 
   getFormatedStartTime(element) {
 
-    const startTimeHours = new Date(element).getHours();
-    const startTimeMinutes = new Date(element).getMinutes();
+    console.log('-- element---', element);
+
+    var subString = element.split(':')[0];
+
+    const startTimeHours = subString.split(' ')[1];
+    const startTimeMinutes = element.split(':')[1];
     return startTimeHours + ":" + startTimeMinutes;
 
   }
   getFormatedEndTime(element) {
 
-    const endTimeHours = new Date(element).getHours();
-    const endTimeMinutes = new Date(element).getMinutes();
+
+
+    console.log('-- element---', element);
+
+    var subString = element.split(':')[0];
+
+    const endTimeHours = subString.split(' ')[1];
+    const endTimeMinutes = element.split(':')[1];
     return endTimeHours + ":" + endTimeMinutes;
 
   }
@@ -172,10 +182,10 @@ export class VolunteerDashboardActivitesComponent implements OnInit {
     this.service.activityCheckIn(checkInPayload).subscribe(res => {
 
       console.log('-- registered successfully -- ', res);
-      if(res['message'] ==='checkedin already'){
+      if (res['message'] === 'checkedin already') {
         this.toastr.warning('checked in already');
 
-      }else{
+      } else {
         this.toastr.success('checked in successfully');
       }
 
@@ -193,10 +203,10 @@ export class VolunteerDashboardActivitesComponent implements OnInit {
     checkOutPayload.checkoutdate = this.datepipe.transform(new Date(), 'dd/MMM/yyyy HH:mm:ss');
     this.service.activityCheckOut(checkOutPayload).subscribe(res => {
       console.log('-- registered successfully -- ', res);
-      if(res['message'] ==='checkedout already'){
+      if (res['message'] === 'checkedout already') {
         this.toastr.warning('checkedout already');
 
-      }else{
+      } else {
         this.toastr.success('checked out successfully');
       }
 

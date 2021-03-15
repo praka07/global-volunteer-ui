@@ -37,6 +37,7 @@ export class CreateActivityComponent implements OnInit {
       content: new FormControl('',[Validators.required]),
       activityDate: new FormControl(new Date()),
       place: new FormControl('',[Validators.required]),
+      conductby: new FormControl('',[Validators.required]),
       totalNumberOfPeople: new FormControl('',[Validators.required])
     });
   }
@@ -88,6 +89,7 @@ export class CreateActivityComponent implements OnInit {
     this.activityDetails.place= this.createActivityForm.get('place').value;
     this.activityDetails.content= this.createActivityForm.get('content').value;
     this.activityDetails.totalNumberOfPeople= this.createActivityForm.get('totalNumberOfPeople').value;
+    this.activityDetails.conductedBy= this.createActivityForm.get('conductby').value;
     this.service.createActivity(this.activityDetails).subscribe(res => {
       console.log("-- res ponse --", res);
       console.log("== Meeting Createed===");

@@ -81,7 +81,6 @@
           </span>
         </div>
 
-
         <div class="row">
           <div class="col-lg-6">
             <div class="form-group">
@@ -95,13 +94,28 @@
           </div>
         </div>
 
+
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label class="text-dark ">Conduct By</label>
+              <input type="text" class="form-control" formControlName="conductby" maxlength="50" />
+              <div class="help-block text-danger"
+                *ngIf="formControls.conductby.errors?.required && formControls.conductby.touched">
+                conduct by is required
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="row mt-3">
           <div class="col-lg-6">
-              <div class="text-right mt-2">
-                  <button type="submit" class="btn btn-success brn-rounded" [disabled]="createActivityForm.invalid">Create Activity</button>
-              </div>
+            <div class="text-right mt-2">
+              <button type="submit" class="btn btn-success brn-rounded" [disabled]="createActivityForm.invalid">Create
+                Activity</button>
+            </div>
           </div>
-      </div>
+        </div>
 
 
       </form>
