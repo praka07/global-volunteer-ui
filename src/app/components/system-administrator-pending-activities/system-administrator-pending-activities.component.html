@@ -13,6 +13,7 @@
             <th>Date</th>
             <th>Start Time</th>
             <th>End Time</th>
+            <th>Duration</th>
             <th>Action</th>
 
           </tr>
@@ -25,6 +26,7 @@
             <td>{{al.activityDate}}</td>
             <td>{{getFormatedStartTime(al.startTime)}}</td>
             <td>{{getFormatedEndTime(al.endTime)}}</td>
+            <td>{{al.duration}}</td>
             <td > <button class="btn btn-success btn-sm" (click)="updateActivityStatus(al)">Approve</button></td>
 
           </tr>

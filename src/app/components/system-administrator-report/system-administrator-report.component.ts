@@ -95,17 +95,24 @@ export class SystemAdministratorReportComponent implements OnInit {
           }],
           yAxes: [{
 
-            ticks: { min: 0 },
-            scaleLabel: {
-              display: true,
-              labelString: 'Volunteer Count',
-              fontStyle: 'bold',
-              fontColor: 'black'
-            },
-            gridLines: {
-              drawOnChartArea: false
-            }
-          }],
+            ticks: {
+              beginAtZero: true,
+              userCallback: function (label, index, labels) {
+                if (Math.floor(label) === label) {
+                  return label;
+                }
+              }
+              },
+              scaleLabel: {
+                display: true,
+                labelString: 'Volunteer Count',
+                fontStyle: 'bold',
+                fontColor: 'black'
+              },
+              gridLines: {
+                drawOnChartArea: false
+              }
+            }],
         }
       }
     });
