@@ -25,7 +25,7 @@ export class SystemAdministratorPendingActivitiesComponent implements OnInit {
     this.service.getAllActivities().subscribe(res => {
       this.activityList = res;
       console.log(' before filter activity list ', this.activityList);
-       this.activityList = this.activityList.filter(activity => activity.status != 'A');
+       this.activityList = this.activityList.filter(activity => activity.status === 'P');
       console.log(' after filter activity list ', this.activityList);
     }, error => {
       this.toastr.error('everything is broken ', 'Major Error');
