@@ -78,17 +78,17 @@ export class ListActivityComponent implements OnInit {
   // submitForm() {
   //   console.log(this.form.value)
   // }
-  updateActivityStatus(al: ActivityDetails) {
-    al.status = !al.status;
-    this.service.updateActivityStatus(al).subscribe(res => {
-      console.log('-- update information -', res);
-      this.toastr.success('Approved SuccessFully !!');
+  // updateActivityStatus(al: ActivityDetails) {
+  //   al.status = !al.status;
+  //   this.service.updateActivityStatus(al).subscribe(res => {
+  //     console.log('-- update information -', res);
+  //     this.toastr.success('Approved SuccessFully !!');
 
-    }, error => {
-      this.toastr.error('everything is broken ', 'Major Error');
-    });
+  //   }, error => {
+  //     this.toastr.error('everything is broken ', 'Major Error');
+  //   });
 
 
 
-  }
+  //}
 }

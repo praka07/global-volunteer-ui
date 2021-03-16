@@ -14,7 +14,7 @@ export class ActivityDetails {
   conductedBy:string;
   approvedBy:number;
   createdBy:number;
-  status:boolean;
+  status:string;
   appliedVolunteerCount:number;
   enableCancelButton:boolean;
   enableCheckInButton:boolean;

@@ -15,7 +15,7 @@ export class SystemAdministratorPendingActivitiesComponent implements OnInit {
   activityList: ActivityDetails[];
   loggedInUser: User;
 
-  constructor(private service: GlobalVolunteerService, private toastr: ToastrService,private datepipe:DatePipe) {
+  constructor(private service: GlobalVolunteerService, private toastr: ToastrService, private datepipe: DatePipe) {
 
   }
 
@@ -25,20 +25,25 @@ export class SystemAdministratorPendingActivitiesComponent implements OnInit {
     this.service.getAllActivities().subscribe(res => {
       this.activityList = res;
       console.log(' before filter activity list ', this.activityList);
-      this.activityList = this.activityList.filter(activity => activity.status === false);
+       this.activityList = this.activityList.filter(activity => activity.status != 'A');
       console.log(' after filter activity list ', this.activityList);
     }, error => {
       this.toastr.error('everything is broken ', 'Major Error');
     })
   }
-  updateActivityStatus(al: ActivityDetails) {
-    al.status = !al.status;
+  updateActivityStatus(al: ActivityDetails, status: string) {
     this.activityList = this.activityList.filter(u => u !== al);
-    al.approvedDate=this.datepipe.transform(new Date(), 'dd/MMM/yyyy');
-    al.approvedBy= this.service.getLoggedInuser().userId;
+    al.approvedDate = this.datepipe.transform(new Date(), 'dd/MMM/yyyy');
+    al.approvedBy = this.service.getLoggedInuser().userId;
+
+    if (status === 'A') {
+      al.status = 'A';
+    } else if (status === 'R') {
+      al.status = 'R';
+    }
     this.service.updateActivityStatus(al).subscribe(res => {
       console.log('-- update information -', res);
-      this.toastr.success('Approved SuccessFully !!');
+      this.toastr.success('Processed SuccessFully !!');
 
     }, error => {
       this.toastr.error('everything is broken ', 'Major Error');

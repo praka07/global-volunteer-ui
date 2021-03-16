@@ -27,7 +27,10 @@
             <td>{{getFormatedStartTime(al.startTime)}}</td>
             <td>{{getFormatedEndTime(al.endTime)}}</td>
             <td>{{al.duration}}</td>
-           <td [ngClass]="al.status? 'text-success font-weight-bold':'text-warning font-weight-bold'">{{al.status?'Approved':'Pending'}}</td>
+           <td *ngIf="al.status ==='P'" class="text-warning font-weight-bold">{{'Pending'}}</td>
+           <td *ngIf="al.status ==='R'" class="text-danger font-weight-bold">{{'Rejected'}}</td>
+           <td *ngIf="al.status ==='A'" class="text-success font-weight-bold">{{'Approved'}}</td>
+
         </tbody>
       </table>
 
