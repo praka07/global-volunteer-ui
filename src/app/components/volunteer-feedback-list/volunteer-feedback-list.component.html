@@ -1,5 +1,5 @@
 <div class="shadow-sm p-3 mb-5 bg-white rounded">
-  <h3 class="mb-4">Activity Details</h3>
+  <h3 class="mb-4">Attended Activities</h3>
 
   <div class="row justify-content-end m-0">
     <div class="col-md-12 mt-3 p-0 mscroll">
@@ -9,12 +9,11 @@
           <tr>
             <th>Name</th>
             <th>Place</th>
-            <th>No.of volunteers</th>
             <th>Date</th>
             <th>Start Time</th>
             <th>End Time</th>
-            <th>Duration (in Min)</th>
-            <th>Status</th>
+            <th>Action</th>
+
 
           </tr>
         </thead>
@@ -22,14 +21,11 @@
           <tr *ngFor="let al of activityList">
             <td>{{al.activityName}}</td>
             <td>{{al.place}}</td>
-            <td>{{al.totalNumberOfPeople}}</td>
             <td>{{al.activityDate}}</td>
             <td>{{getFormatedStartTime(al.startTime)}}</td>
             <td>{{getFormatedEndTime(al.endTime)}}</td>
             <td>{{al.duration}}</td>
-           <td *ngIf="al.status ==='P'" class="text-warning font-weight-bold">{{'Pending'}}</td>
-           <td *ngIf="al.status ==='R'" class="text-danger font-weight-bold">{{'Rejected'}}</td>
-           <td *ngIf="al.status ==='A'" class="text-success font-weight-bold">{{'Approved'}}</td>
+            <td><a routerLink='/volunteer/feedbackentry'>Leave Feedback</a></td>
 
         </tbody>
       </table>

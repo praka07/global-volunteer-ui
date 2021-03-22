@@ -8,15 +8,18 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { VolunteerListActivityComponent } from '../volunteer-list-activity/volunteer-list-activity.component';
 import { VolunteerUpcomingActivitiesComponent } from '../volunteer-upcoming-activities/volunteer-upcoming-activities.component';
 import { VolunteerDashboardActivitesComponent } from '../volunteer-dashboard-activites/volunteer-dashboard-activites.component';
+import { VolunteerFeedbackListComponent } from '../volunteer-feedback-list/volunteer-feedback-list.component';
+import { VolunteerFeedbackEntryComponent } from '../volunteer-feedback-entry/volunteer-feedback-entry.component';
 
 
 @NgModule({
-  declarations: [VolunteerComponent,VolunteerListActivityComponent,VolunteerDashboardActivitesComponent,VolunteerUpcomingActivitiesComponent],
+  declarations: [VolunteerFeedbackEntryComponent,VolunteerFeedbackListComponent,VolunteerComponent,VolunteerListActivityComponent,VolunteerDashboardActivitesComponent,VolunteerUpcomingActivitiesComponent],
   imports: [
     CommonModule,
     SharedModule,
     AvatarModule,
     VolunteerRoutingModule
+
   ], providers: [
     DatePipe
   ]

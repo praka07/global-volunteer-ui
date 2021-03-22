@@ -99,4 +99,8 @@ export class GlobalVolunteerService {
     return this.http.get(`${this.backendUrl}report`);
 
   }
+  getCheckedinActivityList(userId:number):Observable<ActivityDetails[]>{
+    return this.http.get<ActivityDetails[]>(`${this.backendUrl}checkedinactivitylist/${userId}`);
+
+  }
 }
