@@ -4,11 +4,15 @@ import { Observable } from 'rxjs';
 import { User } from '../models/user';
 import { Router } from '@angular/router';
 import { ActivityDetails } from '../models/activityDetails';
+import { FeedBack } from '../models/feedback';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GlobalVolunteerService {
+
+  holdActivityObj: ActivityDetails;
+
 
 
   loggedInUserDetail = new User();
@@ -99,8 +103,21 @@ export class GlobalVolunteerService {
     return this.http.get(`${this.backendUrl}report`);
 
   }
-  getCheckedinActivityList(userId:number):Observable<ActivityDetails[]>{
+  getCheckedinActivityList(userId: number): Observable<ActivityDetails[]> {
     return this.http.get<ActivityDetails[]>(`${this.backendUrl}checkedinactivitylist/${userId}`);
 
+  }
+  storeActivityObject(obj: ActivityDetails) {
+    this.holdActivityObj = obj;
+  }
+  getActivityObject() {
+    return this.holdActivityObj;
+  }
+  feedbackEntry(requestObject: any) {
+    return this.http.post(`${this.backendUrl}createfeedback`, requestObject);
+  }
+
+  getFeedbackInformation() :Observable<FeedBack[]> {
+    return this.http.get<FeedBack[]>(`${this.backendUrl}getfeedbackinformationbyid/${this.getLoggedInuser().userId}`)
   }
 }

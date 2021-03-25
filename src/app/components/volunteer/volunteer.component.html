@@ -62,16 +62,26 @@
           </svg>
         </a>
         <ul class="collapse" id="Activity">
-         <li class="nav-item"><a routerLink="/volunteer/registeractivity" class="nav-link">Register</a></li>
+          <li class="nav-item"><a routerLink="/volunteer/registeractivity" class="nav-link">Register</a></li>
 
         </ul>
       </li>
 
       <li class="nav-item">
-        <a routerLink="/volunteer/feedback" class="nav-link">
-          <img src="../../../assets/images/feedback.png" alt="dashboard" class="link-icon" />
+        <a data-toggle="collapse" href="#feedback" role="button" aria-expanded="false" aria-controls="group"
+          class="nav-link drop">
+          <img src="../../../assets/images/activity.png" alt="announcement" class="link-icon" />
           <span class="menu-title">Feedback</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="feather feather-chevron-down link-arrow">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
         </a>
+        <ul class="collapse" id="feedback">
+          <li class="nav-item"><a routerLink="/volunteer/feedback" class="nav-link">Leave FeedBack</a></li>
+          <li class="nav-item"><a routerLink="/volunteer/editfeedback" class="nav-link">Edit</a></li>
+        </ul>
       </li>
 
     </ul>

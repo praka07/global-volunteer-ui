@@ -10,15 +10,20 @@ import { VolunteerUpcomingActivitiesComponent } from '../volunteer-upcoming-acti
 import { VolunteerDashboardActivitesComponent } from '../volunteer-dashboard-activites/volunteer-dashboard-activites.component';
 import { VolunteerFeedbackListComponent } from '../volunteer-feedback-list/volunteer-feedback-list.component';
 import { VolunteerFeedbackEntryComponent } from '../volunteer-feedback-entry/volunteer-feedback-entry.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { VolunteerEditFeedbackComponent } from '../volunteer-edit-feedback/volunteer-edit-feedback.component';
+import { VolunteerEditFeedbackListComponent } from '../volunteer-edit-feedback-list/volunteer-edit-feedback-list.component';
 
 
 @NgModule({
-  declarations: [VolunteerFeedbackEntryComponent,VolunteerFeedbackListComponent,VolunteerComponent,VolunteerListActivityComponent,VolunteerDashboardActivitesComponent,VolunteerUpcomingActivitiesComponent],
+  declarations: [VolunteerEditFeedbackListComponent,VolunteerEditFeedbackComponent,VolunteerFeedbackEntryComponent,VolunteerFeedbackListComponent,VolunteerComponent,VolunteerListActivityComponent,VolunteerDashboardActivitesComponent,VolunteerUpcomingActivitiesComponent],
   imports: [
     CommonModule,
     SharedModule,
     AvatarModule,
-    VolunteerRoutingModule
+    VolunteerRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
 
   ], providers: [
     DatePipe

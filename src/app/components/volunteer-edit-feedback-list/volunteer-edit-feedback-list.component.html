@@ -1,0 +1,39 @@
+<div class="shadow-sm p-3 mb-5 bg-white rounded">
+  <h3 class="mb-4">Attended Activities</h3>
+
+  <div class="row justify-content-end m-0">
+    <div class="col-md-12 mt-3 p-0 mscroll">
+
+      <table class="table table-hover ">
+        <thead class="thead-dark">
+          <tr>
+            <th>Comments</th>
+            <th>Attachments</th>
+            <th>Date</th>
+            <th>Action</th>
+            <th>Action</th>
+
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let fl of feedbackLst">
+            <td>{{fl.comments}}</td>
+            <td>{{fl.attachmentName}}</td>
+            <td>{{fl.createdDate}}</td>
+            <td (click)="deleteFeedBack(fl)">
+              <i class="fa fa-trash fa-2x"></i>
+          </td>
+          <td (click)="editFeedBack(fl)">
+              <i class="fa fa-pencil fa-2x"></i>
+          </td>
+
+        </tbody>
+      </table>
+
+
+
+    </div>
+
+  </div>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ActivityDetails } from 'src/app/models/activityDetails';
 import { GlobalVolunteerService } from 'src/app/services/global-volunteer.service';
@@ -11,7 +12,7 @@ import { GlobalVolunteerService } from 'src/app/services/global-volunteer.servic
 export class VolunteerFeedbackListComponent implements OnInit {
   activityList: ActivityDetails[];
 
-  constructor(private service:GlobalVolunteerService,private toastr:ToastrService) { }
+  constructor(private router: Router,private service:GlobalVolunteerService,private toastr:ToastrService) { }
 
   ngOnInit(): void {
 
@@ -49,5 +50,9 @@ export class VolunteerFeedbackListComponent implements OnInit {
     return endTimeHours + ":" + endTimeMinutes;
 
   }
+  routeToFeedback(obj:ActivityDetails){
+    this.service.storeActivityObject(obj);
+    this.router.navigate(['/volunteer/feedbackentry']);
 
+  }
 }

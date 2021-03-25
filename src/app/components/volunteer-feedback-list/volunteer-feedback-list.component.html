@@ -12,6 +12,7 @@
             <th>Date</th>
             <th>Start Time</th>
             <th>End Time</th>
+            <th>Duration (in Min)</th>
             <th>Action</th>
 
 
@@ -25,7 +26,7 @@
             <td>{{getFormatedStartTime(al.startTime)}}</td>
             <td>{{getFormatedEndTime(al.endTime)}}</td>
             <td>{{al.duration}}</td>
-            <td><a routerLink='/volunteer/feedbackentry'>Leave Feedback</a></td>
+            <td><button class="btn btn-success btn-sm" (click)="routeToFeedback(al)">Leave Feedback</button></td>
 
         </tbody>
       </table>
