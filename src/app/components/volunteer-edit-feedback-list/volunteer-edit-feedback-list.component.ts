@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { FeedBack } from 'src/app/models/feedback';
 import { GlobalVolunteerService } from 'src/app/services/global-volunteer.service';
@@ -10,25 +11,37 @@ import { GlobalVolunteerService } from 'src/app/services/global-volunteer.servic
 })
 export class VolunteerEditFeedbackListComponent implements OnInit {
 
-  constructor(private service: GlobalVolunteerService,private toastr:ToastrService) { }
+  constructor(private router:Router,private service: GlobalVolunteerService, private toastr: ToastrService) { }
   feedbackLst: FeedBack[];
   ngOnInit(): void {
 
-     this.service.getFeedbackInformation().subscribe(res =>{
-      this.feedbackLst=res;
-      console.log('-- feed back List--',res);
+    this.service.getFeedbackInformation().subscribe(res => {
+      this.feedbackLst = res;
+      console.log('-- feed back List--', res);
 
-    },error =>{
+    }, error => {
       this.toastr.error('everything is broken ', 'Major Error');
     });
 
   }
 
-  deleteFeedBack(obj:FeedBack){
+  deleteFeedBack(obj: FeedBack) {
+    this.service.deleteFeedBack(obj.id).subscribe(res => {
+
+      this.feedbackLst = this.feedbackLst.filter(u => u !== obj); // remove from UI
+
+      this.toastr.success('deleted successfully !!');
+
+    }, error => {
+      this.toastr.error('everything is broken ', 'Major Error');
+    });
+
 
   }
 
-  editFeedBack(obj:FeedBack){
+  editFeedBack(obj: FeedBack) {
+    this.service.holdEditFeedBack(obj);
+    this.router.navigate(['/volunteer/editfeedback']);
 
   }
 

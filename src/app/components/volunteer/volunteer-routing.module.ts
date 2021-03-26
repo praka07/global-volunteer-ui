@@ -35,7 +35,11 @@ const routes: Routes = [
 
       },
       {
-        path: 'editfeedback', component: VolunteerEditFeedbackListComponent
+        path:'editfeedback',component:VolunteerEditFeedbackComponent
+
+      },
+      {
+        path: 'listeditfeedback', component: VolunteerEditFeedbackListComponent
       },
 
       {

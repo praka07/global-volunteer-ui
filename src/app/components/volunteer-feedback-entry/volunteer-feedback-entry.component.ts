@@ -37,7 +37,7 @@ export class VolunteerFeedbackEntryComponent implements OnInit {
     this.service.feedbackEntry(requestObject).subscribe(res => {
       console.log(' --- response about feed back ---', res);
       this.toastr.success('Thank you, noted !!');
-      this.router.navigate(['/volunteer/feedback'])
+      this.router.navigate(['/volunteer/listeditfeedback'])
 
     }, error => {
       this.toastr.error('everything is broken ', 'Major Error');
@@ -73,12 +73,14 @@ export class VolunteerFeedbackEntryComponent implements OnInit {
           console.log('--file pathValue --', i, this.clearUploadedValue.nativeElement.value);
           //console.log('--- activity name --',this.selectedActivity.activityId);
           item["name"] = file.name;
-          reader.readAsDataURL(file);
+
           reader.onload = () => {
             console.log("--- image content -- ", reader.result);
+            this.urls.push(reader.result);
             //  this.attachmentDetails.push(reader.result.toString());
             item["content"] = reader.result.toString();
           };
+          reader.readAsDataURL(file);
 
         }
         this.attachmentDetails.push(item);

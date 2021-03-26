@@ -17,18 +17,27 @@
           </div>
         </div>
         <div class="row">
+          <div class="col-md-4" *ngFor="let url of urls">
+            <div class="card-body">
+              <img class="card-img" [src]="url">
+            </div>
+          </div>
+        </div>
+        <div class="row">
           <div class="col-lg-8">
             <div class="form-group">
               <label for="fileSelect">Attach 3 images( accept .jpeg format)</label>
               <input type='file' #uploadValue formControlName="attachment" accept=".jpeg" id="fileSelect"
-                (change)="onSelectFile($event)" multiple >
+                (change)="onSelectFile($event)" multiple>
               <div class="help-block text-danger"
                 *ngIf="formControls.attachment.errors?.required && formControls.attachment.touched">
                 attchment is required
               </div>
+
             </div>
           </div>
         </div>
+
         <div class="row mt-3">
           <div class="col-lg-8">
             <div class="text-right mt-2">

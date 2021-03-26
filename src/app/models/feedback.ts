@@ -4,6 +4,7 @@ export class FeedBack {
   transactionId: number;
   comments: string;
   attachmentName: string;
+  attachmentContent:string;
   createdBy: number;
   createdDate: string;
 

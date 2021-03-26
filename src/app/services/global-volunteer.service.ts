@@ -11,7 +11,10 @@ import { FeedBack } from '../models/feedback';
 })
 export class GlobalVolunteerService {
 
+
   holdActivityObj: ActivityDetails;
+
+  feedbackObject = new FeedBack();
 
 
 
@@ -117,7 +120,17 @@ export class GlobalVolunteerService {
     return this.http.post(`${this.backendUrl}createfeedback`, requestObject);
   }
 
-  getFeedbackInformation() :Observable<FeedBack[]> {
+  getFeedbackInformation(): Observable<FeedBack[]> {
     return this.http.get<FeedBack[]>(`${this.backendUrl}getfeedbackinformationbyid/${this.getLoggedInuser().userId}`)
+  }
+  deleteFeedBack(feedbackId: number) {
+    return this.http.delete(`${this.backendUrl}feedback/${feedbackId}`);
+  }
+
+  holdEditFeedBack(obj: FeedBack) {
+    this.feedbackObject = obj;
+  }
+  getEditFeedBack() {
+    return this.feedbackObject;
   }
 }
