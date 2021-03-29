@@ -133,4 +133,8 @@ export class GlobalVolunteerService {
   getEditFeedBack() {
     return this.feedbackObject;
   }
+  updateFeedBack(updateObject:any){
+    return this.http.put(`${this.backendUrl}editfeedbackbyid`,updateObject);
+
+  }
 }

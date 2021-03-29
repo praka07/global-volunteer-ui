@@ -37,7 +37,7 @@ export class VolunteerFeedbackEntryComponent implements OnInit {
     this.service.feedbackEntry(requestObject).subscribe(res => {
       console.log(' --- response about feed back ---', res);
       this.toastr.success('Thank you, noted !!');
-      this.router.navigate(['/volunteer/listeditfeedback'])
+      this.router.navigate(['/volunteer/listeditfeedback']);
 
     }, error => {
       this.toastr.error('everything is broken ', 'Major Error');

@@ -17,11 +17,11 @@ export class VolunteerEditFeedbackComponent implements OnInit {
   updateFeedbackForm: FormGroup;
   editFeedbackObject: FeedBack;
   attachmentDetails = [];
-  @ViewChild("uploadValue",{static: true}) clearUploadedValue: ElementRef;
-  attachmentNameLst=[];
+  @ViewChild("uploadValue", { static: true }) clearUploadedValue: ElementRef;
+  attachmentNameLst = [];
 
 
-  constructor(private datepipe: DatePipe,private toastr: ToastrService, private service: GlobalVolunteerService,private router:Router) { }
+  constructor(private datepipe: DatePipe, private toastr: ToastrService, private service: GlobalVolunteerService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -34,12 +34,27 @@ export class VolunteerEditFeedbackComponent implements OnInit {
     console.log('-- Form Value ---', this.updateFeedbackForm);
   }
   ngAfterViewInit() {
-   // this.clearUploadedValue.nativeElement.value= this.editFeedbackObject.attachmentName;
+    // this.clearUploadedValue.nativeElement.value= this.editFeedbackObject.attachmentName;
   }
   get formControls() { return this.updateFeedbackForm.controls; }
 
 
-  updateFeedback(){
+  updateFeedback() {
+    let updateObject = {
+      id: this.editFeedbackObject.id,
+      comments: this.updateFeedbackForm.controls['comments'].value
+
+    };
+    this.service.updateFeedBack(updateObject).subscribe(res => {
+      this.toastr.success('updated successfully !!');
+
+      this.router.navigate(['/volunteer/listeditfeedback']);
+
+
+
+    }, error => {
+      this.toastr.error('everything is broken ', 'Major Error');
+    });
 
   }
 }
