@@ -64,7 +64,6 @@ export class VolunteerDashboardActivitesComponent implements OnInit {
 
   getFormatedStartTime(element) {
 
-    console.log('-- element---', element);
 
     var subString = element.split(':')[0];
 
@@ -77,7 +76,6 @@ export class VolunteerDashboardActivitesComponent implements OnInit {
 
 
 
-    console.log('-- element---', element);
 
     var subString = element.split(':')[0];
 
@@ -101,10 +99,14 @@ export class VolunteerDashboardActivitesComponent implements OnInit {
       console.log('-- deifference---', diff);
       if (diff == 0) {
 
-        const startTimeHours = new Date(element.startTime).getHours();
-        const startTimeMinutes = new Date(element.startTime).getMinutes();
-        const endTimeHours = new Date(element.endTime).getHours();
-        const endTimeMinutes = new Date(element.endTime).getMinutes();
+
+
+        var subStringStartTime = element.startTime.split(':')[0];
+        var subStringEndTime = element.endTime.split(':')[0];
+        const startTimeHours = subStringStartTime.split(' ')[1];
+        const startTimeMinutes = element.startTime.split(':')[1];
+        const endTimeHours = subStringEndTime.split(' ')[1];
+        const endTimeMinutes = element.endTime.split(':')[1];
 
         console.log(' start time hours--', startTimeHours);
         console.log(' startTimeMinutes--', startTimeMinutes);
@@ -116,8 +118,8 @@ export class VolunteerDashboardActivitesComponent implements OnInit {
         startTime.setHours(+startTimeHours);
         startTime.setMinutes(+startTimeMinutes);
         var endTime = new Date();
-        endTime.setHours(endTimeHours);
-        endTime.setMinutes(endTimeMinutes);
+        endTime.setHours(+endTimeHours);
+        endTime.setMinutes(+endTimeMinutes);
         console.log('--d1----', startTime);
         console.log('--today date----', new Date());
 
